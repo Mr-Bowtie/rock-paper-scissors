@@ -1,0 +1,9 @@
+.playerTally {
+    background-color: lightseagreen;
+    color: cornsilk;
+}
+
+.computerTally {
+    background-color: maroon;
+    color: rgb(223, 223, 217);
+}
