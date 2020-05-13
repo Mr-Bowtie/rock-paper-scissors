@@ -1,11 +1,10 @@
 const player = document.querySelector('.playerTally');
 const comp = document.querySelector('.computerTally');
-const banner = document.querySelector(".banner");
 const playerDisplay = document.querySelector("#playerChoice");
 const compDisplay = document.querySelector("#computerChoice");
 const tie = document.querySelector("#tie");
-let playerScore = 0;
-let computerScore = 0; 
+const endBanner = document.querySelector("#endBanner");
+
 
 function random(number) {
     return Math.floor(Math.random()*number);
@@ -18,8 +17,34 @@ function computerPlay() {
 
 function displayRound(player, computer, isTie=false) {
     playerDisplay.textContent = `${player}`;
-compDisplay.textContent = `${computer}`;
-(isTie) ? tie.textContent = "Tie!" : tie.textContent = "" ;
+    compDisplay.textContent = `${computer}`;
+    (isTie) ? tie.textContent = "Tie!" : tie.textContent = "" ;
+
+    if (playerScore === 5 || computerScore ===5) {
+        document.removeEventListener('click', clicker);
+        if (playerScore > computerScore) {
+            endBanner.textContent = "YOU WIN!";
+        }
+        else {
+            endBanner.textContent = "The Computer Wins!";
+        }
+        newRound();
+    }
+}
+
+function newRound() {
+    let choice = prompt("Would you like to play again? (yes/no)")
+    if (choice === "yes" ) {
+        playerScore = 0;
+        computerScore = 0;
+        document.addEventListener('click', clicker);
+        scorekeeper();
+        endBanner.textContent = "";
+    }
+    else {
+        alert("Thanks for playing! ")
+    }
+ 
 }
 
 function clicker(e) {
@@ -52,46 +77,46 @@ function playRound(playerSelection, computerSelection) {
                 displayRound(playerSelection, computerSelection, true);
             }
             break;
-        case 'paper':
-            if (computerSelection === 'rock') {
-                playerScore += 1;
-                scorekeeper();
-                displayRound(playerSelection, computerSelection);
+            case 'paper':
+                if (computerSelection === 'rock') {
+                    playerScore += 1;
+                    scorekeeper();
+                    displayRound(playerSelection, computerSelection);
+                }
+                else if (computerSelection === 'scissors') {
+                    computerScore += 1;
+                    scorekeeper();
+                    displayRound(playerSelection, computerSelection);
+                }
+                else {
+                    displayRound(playerSelection, computerSelection, true);
+                }
+                break;
+                case 'scissors':
+                    if (computerSelection === 'paper') {
+                        playerScore += 1;
+                        scorekeeper();
+                        displayRound(playerSelection, computerSelection);
+                    }
+                    else if ( computerSelection === 'rock') {
+                        computerScore += 1;
+                        scorekeeper();
+                        displayRound(playerSelection, computerSelection);
+                    }
+                    else {
+                        displayRound(playerSelection, computerSelection, true);
+                    }
+                    break;
+                    default: {
+                        return "Error, only enter rock, paper, or scissors please."
+                    }
+                    break;
+                }
             }
-            else if (computerSelection === 'scissors') {
-                computerScore += 1;
-                scorekeeper();
-                displayRound(playerSelection, computerSelection);
-            }
-            else {
-                displayRound(playerSelection, computerSelection, true);
-            }
-            break;
-        case 'scissors':
-            if (computerSelection === 'paper') {
-                playerScore += 1;
-                scorekeeper();
-                displayRound(playerSelection, computerSelection);
-            }
-            else if ( computerSelection === 'rock') {
-                computerScore += 1;
-                scorekeeper();
-                displayRound(playerSelection, computerSelection);
-            }
-            else {
-                displayRound(playerSelection, computerSelection, true);
-            }
-            break;
-        default: {
-            return "Error, only enter rock, paper, or scissors please."
-        }
-            break;
-    }
-}
-
+            
+            
+let playerScore = 0;
+let computerScore = 0; 
 
 
 document.addEventListener('click', clicker);
-
-
-
