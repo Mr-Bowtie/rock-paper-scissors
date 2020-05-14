@@ -7,3 +7,58 @@
     background-color: maroon;
     color: rgb(223, 223, 217);
 }
+
+body {
+    background-color: #424140;
+    color: #f5f3f1;
+    height: 75vh;
+    width: 100%; 
+
+}
+
+.buttonDiv {
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin: 5% auto;
+    max-width: 700px
+    ;
+}
+
+#scoreboard {
+    height: 60%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+}
+
+#rock {
+    background-image: url("RPS_icons/rock.png"); 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#paper {
+    background-image: url("RPS_icons/paper.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#scissors {
+    background-image: url("RPS_icons/scissors.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+button {
+    height: 75px;
+    width: 75px;
+    border: none;
+    transition-duration: 0.2s;
+}
+
+button:hover {
+   border: 4px solid #f5f3f1;
+
+}
