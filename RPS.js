@@ -23,10 +23,10 @@ function displayRound(player, computer, isTie=false) {
     if (playerScore === 5 || computerScore ===5) {
         document.removeEventListener('click', clicker);
         if (playerScore > computerScore) {
-            endBanner.textContent = "YOU WIN!";
+           alert("YOU WIN!");
         }
         else {
-            endBanner.textContent = "The Computer Wins!";
+           alert("The Computer Wins!");
         }
         newRound();
     }
@@ -39,7 +39,6 @@ function newRound() {
         computerScore = 0;
         document.addEventListener('click', clicker);
         scorekeeper();
-        endBanner.textContent = "";
     }
     else {
         alert("Thanks for playing! ")
