@@ -14,25 +14,18 @@
         <button type="button" class="btn" id='scissors'></button>
     </div>
     <div id="scoreboard">
-        <div class="score" >
-            Player: 
-            <span class="playerTally"></span>
-        </div>
-        <div class="score" >
-            Computer:
-            <span class="computerTally"></span>
-        </div>
         <div class='roundResults'>
-            <h2>Round Results</h2>
-            <div>
-                Player:
-                <span id="playerChoice"></span>
-            </div>
-            <div>
-                Computer: 
-                <span id="computerChoice"></span>
-            </div>
+            <h2 id="title">Previous Round</h2>
+            <div id="playerRound">Player:</div>
+            <div id="playerChoice"></div>
+            <div id="compRound">Computer:</div>
+            <div id="computerChoice"></div>
             <div id="tie"></div>
+        </div>
+        <div class="score" id="score">
+            <h2 id="scoreTitle">Score</h2>
+            <div class="playerTally"></div>
+            <div class="computerTally"></div>
         </div>
         <div id="endBanner"></div>
     </div>

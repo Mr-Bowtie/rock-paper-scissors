@@ -16,8 +16,15 @@ function computerPlay() {
 }
 
 function displayRound(player, computer, isTie=false) {
-    playerDisplay.textContent = `${player}`;
-    compDisplay.textContent = `${computer}`;
+    playerDisplay.style.backgroundImage = `url("RPS_icons/${player}.png")`;
+    playerDisplay.style.backgroundRepeat = "no-repeat";
+    playerDisplay.style.backgroundPosition = "center";
+    playerDisplay.style.backgroundSize = "45px";
+
+    compDisplay.style.backgroundImage = `url("RPS_icons/${computer}.png")`;
+    compDisplay.style.backgroundRepeat = "no-repeat";
+    compDisplay.style.backgroundPosition = "center";
+    compDisplay.style.backgroundSize = "45px";
     (isTie) ? tie.textContent = "Tie!" : tie.textContent = "" ;
 
     if (playerScore === 5 || computerScore ===5) {
